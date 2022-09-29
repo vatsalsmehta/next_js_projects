@@ -54,7 +54,7 @@ export default function TabComponent() {
           {/* here we generate the labels for each tab and the functionality where we can change them on click */}
           {alllabels.map((label,index)=>{
             return(
-              <Tab label={label} {...a11yProps(index)} />
+              <Tab label={label} key={index} {...a11yProps(index)} />
             )
           })};
         </Tabs>
@@ -64,7 +64,7 @@ export default function TabComponent() {
       {/* here we'll generate our tab panel  one that contains the content or component to be displayed on each screen */}
       {allcomponents.map((component,index)=>{
         return(
-        <TabPanel currentlypressedTab={currentopenTabValue} index={index}>
+        <TabPanel currentlypressedTab={currentopenTabValue} key={index} index={index}>
           {component}
         </TabPanel>)
       })}
