@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TabComponent from '../../components/TabComponent';
-const dashboardIndex=()=>{
+const DashboardIndex=()=>{
 
     return(
         <div>
@@ -9,4 +9,4 @@ const dashboardIndex=()=>{
     )
 }
 
-export default dashboardIndex;
+export default DashboardIndex;
