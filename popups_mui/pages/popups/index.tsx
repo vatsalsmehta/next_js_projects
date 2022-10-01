@@ -11,7 +11,13 @@ const PopupIndex =()=>{
             productId: "a_2522",
             productName: "Suzuki Gixxer",
             productValue: 95000
-        }]
+        },
+        {
+            productId: "a99",
+            productName: "Activa",
+            productValue: 25000
+        },
+    ]
     
     return(
         <div>
