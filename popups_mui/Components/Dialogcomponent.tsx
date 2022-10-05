@@ -23,7 +23,7 @@ const DialogComponent=(props: DialogTitleProps)=>{
     return(
         //open={isdialogopen} is the logic of opening and closing of of popup as popup will open when isdialogopen is true and close when isdialogopen is false
         //if we add onclose any click outside the popup will result in closing of popup
-       <Dialog id={id} classes={{ paper: css.dialogBoxStyles }}open={isdialogopen} onClose={() => setisdialogopen(false)} >
+       <Dialog id={id} classes={{ paper: css.dialogBoxStyles }} open={isdialogopen} onClose={() => setisdialogopen(false)} >
             <Box className={css.dialogHeader}>
                 <DialogTitle className={css.dialogTitle}>Popup Opened</DialogTitle>
             </Box>
