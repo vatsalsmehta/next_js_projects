@@ -44,7 +44,7 @@ export default function TabComponent() {
     setcurrentopenTabValue(newValue);
   };
   
-  const allcomponents=[<InfoComponent1 data='baby'/>,<InfoComponent2/>,<InfoComponent3/>]; //all the imported components to render on different tabs
+  const allcomponents=[<InfoComponent1 data='Isme props se data bheja'/>,<InfoComponent2/>,<InfoComponent3/>]; //all the imported components to render on different tabs
   const alllabels=["component1","component2","component3"]
 
   return (
