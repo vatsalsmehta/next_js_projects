@@ -2,14 +2,16 @@ import { Toolbar, AppBar, Typography } from '@mui/material';
 import { makeStyles } from '@material-ui/core';
 import React from 'react';
 
+//search mui breakpoints to get idea of this
 const useStyles = makeStyles((theme:any)=>({
-    //search mui breakpoints to get idea of this
+//using this css classname would not display anything wherever its used except where the width of screen is above 800 or equal to 800
     DesktopScreen:{
         display:"none",
         [theme.breakpoints.up(800)]:{
             display: "block"
     },
 },
+//using this css classname would not display wherever its used except where the width of screen is less than 401
     MobileScreen:  {
         display:"none",
         [theme.breakpoints.down(401)]:{
