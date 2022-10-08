@@ -1,10 +1,10 @@
 import * as React from 'react';
+import LeftBar from '../components/LeftNavbar';
+import NavBar from '../components/NavBar';
 
 class IndexPage extends React.Component{
   render(): React.ReactNode {
-    return(
-      <h1>Hello</h1>
-    )
+    return <NavBar/>
   }
 };
 
