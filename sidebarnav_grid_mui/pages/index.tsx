@@ -1,11 +1,8 @@
 import * as React from 'react';
-
+import RootComponent from '../components/RootComponent';
 class IndexPage extends React.Component{
   render(): React.ReactNode {
-    return(
-      <>Hi
-      </>
-    )
+    return <RootComponent/>
   }
 }
 
