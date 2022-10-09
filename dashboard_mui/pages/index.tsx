@@ -1,5 +1,5 @@
 import * as React from 'react';
-import LeftBar from '../components/LeftNavbar';
+import LeftBar from '../components/LeftBar';
 import NavBar from '../components/NavBar';
 
 class IndexPage extends React.Component{

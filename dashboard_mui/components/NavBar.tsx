@@ -1,11 +1,11 @@
-import React from 'react';
-import { Toolbar, AppBar, Typography, InputBase, alpha, Badge, Avatar } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Toolbar, AppBar, Typography, InputBase, alpha, Badge, Avatar, Tooltip } from '@mui/material';
 import { Mail, Search, Notifications } from '@mui/icons-material';
 import { makeStyles } from '@material-ui/core';
-import { deepPurple } from '@mui/material/colors';
+import { deepPurple, red } from '@mui/material/colors';
 
 //search mui breakpoints to get idea of this
-const useStyles = makeStyles((theme:any)=>({
+const useStyles = makeStyles(theme=>({
 //using this css classname would not display anything wherever its used except where the width of screen is above 800 or equal to 800
     DesktopScreen: {
         display:"none",
@@ -22,8 +22,7 @@ const useStyles = makeStyles((theme:any)=>({
     },
 
     toolbar: {
-        display: "flex",
-        justifyContent: "space-between" //space-evenly also looks good
+        display: "flex"//space-evenly also looks good
     },
 
     searchBox: {
@@ -56,27 +55,36 @@ const useStyles = makeStyles((theme:any)=>({
         '&:hover': {
             cursor: "pointer",
         },
+    },
+
+    avatarStyle:{ 
+        backgroundColor: (props:any)=>(props?.customTheme ? red[900] :deepPurple[800]),
+        fontSize: "13px",
+        '&.hover': {
+            cursor: "pointer",
+        }
     }
 
 }));
 
 const NavBar=()=>{
 
-const classes= useStyles();
-
-
+    const [customTheme,setcustomTheme]=useState<boolean>(false);
+    const classes= useStyles({customTheme});//passing this as prop to UseStyles
+    
 //you could also make a css style for Input base and use it.
 
     return(
         <AppBar>
-            <Toolbar classes={classes.toolbar}>
+            <Toolbar >
                  <Typography variant='h6' className={classes.DesktopScreen}>Will be Visible Only on Desktop </Typography>
                  <Typography variant='h6' className={classes.MobileScreen}>Vatsal Phone </Typography>
-                  
+                 
                   <div className={classes.searchBox}>
                     <div className={classes.searchIcon}><Search/> </div>
                     <InputBase placeholder='Search...'/>
                   </div>
+
                   <div className={classes.commonIcons}>
                     <Badge>
                         <Mail/>
@@ -86,10 +94,16 @@ const classes= useStyles();
                     </Badge>
                     
                   </div>
+
                   <div>
-                  <Avatar sx={{ bgcolor: deepPurple[500],fontSize: "13px" }}>VM</Avatar>
+                    {/* Now an Example of passing Props to makeStyles */}
+                       <Tooltip title='Change Theme by passing props to useStyles'>
+                            <Avatar className={classes.avatarStyle} onClick={()=>setcustomTheme(prev=>!prev)}>VM</Avatar>
+                        </Tooltip>
+                        
                   </div>
-            </Toolbar>
+
+            </Toolbar> 
         </AppBar>
     )
 };
