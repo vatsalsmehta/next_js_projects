@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Toolbar, AppBar, Typography, InputBase, alpha, Badge, Avatar, Tooltip } from '@mui/material';
 import { Mail, Search, Notifications } from '@mui/icons-material';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, NoSsr } from '@material-ui/core';
 import { deepPurple, red } from '@mui/material/colors';
 
 //search mui breakpoints to get idea of this
@@ -76,6 +76,7 @@ const NavBar=()=>{
 
     return(
         <AppBar>
+            <NoSsr>
             <Toolbar >
                  <Typography variant='h6' className={classes.DesktopScreen}>Will be Visible Only on Desktop </Typography>
                  <Typography variant='h6' className={classes.MobileScreen}>Vatsal Phone </Typography>
@@ -104,6 +105,7 @@ const NavBar=()=>{
                   </div>
 
             </Toolbar> 
+            </NoSsr>
         </AppBar>
     )
 };
