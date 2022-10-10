@@ -76,7 +76,7 @@ const NavBar=()=>{
 
     return(
         <AppBar>
-            <NoSsr>
+            {/* <NoSsr>  Solution no. 1 for prop classname didnot match*/}
             <Toolbar >
                  <Typography variant='h6' className={classes.DesktopScreen}>Will be Visible Only on Desktop </Typography>
                  <Typography variant='h6' className={classes.MobileScreen}>Vatsal Phone </Typography>
@@ -105,7 +105,7 @@ const NavBar=()=>{
                   </div>
 
             </Toolbar> 
-            </NoSsr>
+            {/* </NoSsr> */}
         </AppBar>
     )
 };
