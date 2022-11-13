@@ -2,6 +2,10 @@
   padding: 0 2rem;
 }
 
+.grabbing * {
+  cursor: grabbing !important;
+}
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;
