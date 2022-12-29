@@ -10,17 +10,20 @@ const port = process.env.PORT;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", async (req: Request, res: Response): Promise<Response> => {
-        return res.status(200).send({
-            message: "Hello World man!"
-        });
-    }
-);
-
 try {
     app.listen(port, (): void => {
         console.log(`Connected successfully on port ${port}`);
     });
+
+    // route for sign in 
+    const singinRoute = require("./handlers/signinHandler");
+    app.use('/signin', singinRoute);
+
+    // TODO: route for signup
 } catch (error:any) {
     console.error(`Error occured: ${error.message}`);
 }
+
+app.get('/',async(req,res)=>{
+    res.status(200).send("Welcome to the backend of ecommerce API, I'm building");
+})
