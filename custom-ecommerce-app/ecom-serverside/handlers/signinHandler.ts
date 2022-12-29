@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from "express";
 import { handleSignIn } from "../controller/signin";
+import { BadRequestError, errorResponse } from "../utils/error";
 const app: Application = express();
 
 
@@ -7,15 +8,11 @@ const app: Application = express();
 app.post("/", async(req:Request, res:Response) => {
     try {
         if (!req.body || Object.keys(req.body).length === 0) {
-            return res.status(400).send({
-                "error" : "Request Body is missing"
-            });
+            throw new BadRequestError('Request Body is missing');
         }
 
         if (!req.body.username || !req.body.password) {
-            return res.status(400).send({
-                "error" : "Both Username and Password are required Parameters"
-            });
+            throw new BadRequestError('both id and password are required');
         }
 
         const signInRepsonse = await handleSignIn(req.body);
@@ -26,11 +23,8 @@ app.post("/", async(req:Request, res:Response) => {
     });
 
     } catch (error) {
-        return res.status(500).send({
-            "error": JSON.stringify(error)
-        })
+        return errorResponse(error as Error, res);
     }
-    
 
 })
 
