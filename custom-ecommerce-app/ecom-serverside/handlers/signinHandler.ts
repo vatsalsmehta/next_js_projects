@@ -16,6 +16,7 @@ app.post("/", async(req:Request, res:Response) => {
         }
 
         const signInRepsonse = await handleSignIn(req.body);
+        
         res.status(signInRepsonse.status).send({
             "body": signInRepsonse.userDetails ?
             signInRepsonse.userDetails :

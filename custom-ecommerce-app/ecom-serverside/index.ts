@@ -23,7 +23,3 @@ try {
 } catch (error:any) {
     console.error(`Error occured: ${error.message}`);
 }
-
-app.get('/',async(req,res)=>{
-    res.status(200).send("Welcome to the backend of ecommerce API, I'm building");
-})
