@@ -27,7 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
-custom-ecommerce-app/ecom-serverside/.env
+*.env
 
 # vercel
 .vercel
